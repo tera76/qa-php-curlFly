@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  curl_fly:
+    build:
+      context: .
+    expose:
+      - 4750
+    command: php -S 0.0.0.0:4750
+    restart: unless-stopped
+    networks:
+      - nginx_network
+
+networks:
+  nginx_network:
+    external: true
+    name: nginx_network
